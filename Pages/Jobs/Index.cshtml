@@ -1,0 +1,64 @@
+﻿@page
+@model SortFeature.Pages.Jobs.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Job Search Results (50 per page)</h1>
+
+<form>
+    <p>
+        Search Using Job Description Keyword: <input type="text" asp-for="Search" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Jobs[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jobs[0].Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jobs[0].Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jobs[0].Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jobs[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jobs[0].Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Jobs) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
